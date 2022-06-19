@@ -4,6 +4,7 @@ export interface PtsupConfiguration {
   entry: string | string[]
   outdir: string
   platform: 'node' | 'browser'
+  assets?: string[]
   root?: string
   format?: string
   sourcemap?: boolean
@@ -28,8 +29,6 @@ export const defaultConfig: PtsupConfiguration = {
   sourcemap: false,
   minify: false,
   dts: false,
-
-  // dtsOnly: false,
   clean: false,
   jsxFactory: 'React.createElement',
 }

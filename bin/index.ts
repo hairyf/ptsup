@@ -4,13 +4,18 @@ import fs from 'fs-extra'
 import cac from 'cac'
 import slash from 'slash'
 import { pascalCase } from 'pascal-case'
-import type { Format } from '../helper'
-import { build, defaultConfig, getCwdPackage, toArray } from '../helper'
+import type { Format } from '../config'
+import { defaultConfig } from '../config'
+import { getCwdPackage } from '../utils'
+import { build } from '../builder'
 
 const cli = cac('ptsup')
 
 function ensureArray(input: string): string[] {
   return Array.isArray(input) ? input : input.split(/ |,/)
+}
+function toArray(value: any | any[]) {
+  return Array.isArray(value) ? value : [value]
 }
 
 cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
@@ -28,7 +33,7 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
   .option('--meta', 'helper and carry package.json/*.md', { default: 'enable' })
   .option('--jsxFactory <jsxFactory>', 'Name of JSX factory function', { default: 'React.createElement' })
   .option('--platform <node|browser>', 'platform determines the format of the output', { default: 'node' })
-  .action((files, flags) => {
+  .action(async (files, flags) => {
     const options = Object.assign(defaultConfig, flags)
 
     if (files.length > 0)
@@ -44,7 +49,7 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
       options.format = toArray(options.format)
 
     if (!options.globalName) {
-      const packageJson = getCwdPackage()
+      const packageJson = await getCwdPackage()
       let name: string = packageJson?.name || ''
       name = name.replace('@', '')
       name = pascalCase(name)

@@ -1,5 +1,6 @@
-import type { PtsupConfigurationRead } from './helper'
+import type { PtsupConfigurationRead } from './config'
 
-export const definePtsupConfig = (config: PtsupConfigurationRead) => {
+export const definePtsupConfig = (config: Partial<PtsupConfigurationRead>) => {
   return config
 }
+

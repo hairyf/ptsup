@@ -7,6 +7,8 @@
     "ptsup": "bin/index.js"
   },
   "publishConfig": {
+    "main": "./index.js",
+    "types": "./index.d.ts",
     "directory": "dist"
   },
   "scripts": {
@@ -30,7 +32,8 @@
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-esbuild": "^4.9.1",
     "slash": "^4.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "unconfig": "^0.3.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.1",
