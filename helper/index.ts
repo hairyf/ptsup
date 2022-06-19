@@ -1,15 +1,19 @@
-import { execSync } from 'child_process'
+import fs from 'fs-extra'
 import { runEsbuild } from './build'
-import type { UnroilConfigurationRead } from './config'
+import type { PtsupConfigurationRead } from './config'
 import { buildMetaFiles } from './utils'
 
 export * from './config'
 export * from './utils'
 export * from './build'
 
-export async function build(config: UnroilConfigurationRead) {
+export async function build(config: PtsupConfigurationRead) {
+  if (!config.format)
+    config.format = config.platform === 'node' ? ['cjs', 'esm'] : ['cjs', 'esm', 'iife']
+
   if (config.clean)
-    execSync(`rimraf ${config.outdir}`)
+    fs.removeSync(config.outdir)
+
   if (config.meta)
     await buildMetaFiles(config.outdir)
 

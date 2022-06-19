@@ -1,15 +1,16 @@
 {
-  "name": "pkgup",
+  "name": "ptsup",
+  "description": "Build a packager with bundle or run tsc directories, suitable for node|browser library package processing, It is implemented using esbuild",
   "version": "0.0.0",
   "main": "index.ts",
   "bin": {
-    "pkgup": "bin/index.js"
+    "ptsup": "bin/index.js"
   },
   "publishConfig": {
     "directory": "dist"
   },
   "scripts": {
-    "build": "hairy build"
+    "build": "ptsup --dts --meta"
   },
   "license": "MIT",
   "dependencies": {
@@ -22,6 +23,7 @@
     "fs-extra": "^10.1.0",
     "lnk": "^1.1.0",
     "lodash": "^4",
+    "mkdist": "^0.3.10",
     "pascal-case": "^3.1.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.75.6",

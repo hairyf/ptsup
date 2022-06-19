@@ -1,9 +1,10 @@
 export type Format = 'cjs' | 'esm' | 'iife'
 
-export interface UnroilConfiguration {
+export interface PtsupConfiguration {
   entry: string | string[]
   outdir: string
   platform: 'node' | 'browser'
+  root?: string
   format?: string
   sourcemap?: boolean
   minify?: boolean
@@ -15,12 +16,12 @@ export interface UnroilConfiguration {
   jsxFactory?: string
 }
 
-export interface UnroilConfigurationRead extends Omit<Required<UnroilConfiguration>, 'format' | 'entry'> {
+export interface PtsupConfigurationRead extends Omit<Required<PtsupConfiguration>, 'format' | 'entry'> {
   entry: string[]
   format: Format[]
 }
 
-export const defaultConfig: UnroilConfiguration = {
+export const defaultConfig: PtsupConfiguration = {
   entry: './',
   outdir: 'dist',
   platform: 'node',

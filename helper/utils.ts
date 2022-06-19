@@ -4,7 +4,7 @@ import esbuild from 'esbuild'
 import { rollup } from 'rollup'
 import rollupPluginDts from 'rollup-plugin-dts'
 import lnk from 'lnk'
-import type { UnroilConfigurationRead } from './config'
+import type { PtsupConfigurationRead } from './config'
 import { externalizePlugin } from './plugins'
 
 export const toArray = (value: any | any[]) => {
@@ -18,7 +18,7 @@ export const getCwdPackage = (cwd = process.cwd()) => {
   return fs.readJSONSync(pkgPath)
 }
 
-export async function resolveBuild(config: UnroilConfigurationRead, build: esbuild.BuildOptions) {
+export async function resolveBuild(config: PtsupConfigurationRead, build: esbuild.BuildOptions) {
   build.plugins = [externalizePlugin(), ...(build.plugins || [])]
   const buildConfig: esbuild.BuildOptions = {
     bundle: false,
@@ -37,13 +37,10 @@ export async function bundleBuildDts(input: string, outfile: string) {
   const bundles = await rollup({
     input,
     plugins: [
-      rollupPluginDts({
-        compilerOptions: { preserveSymlinks: false },
-      }),
+      rollupPluginDts({ compilerOptions: { preserveSymlinks: false } }),
     ],
     onwarn: () => false,
   })
-
   await bundles.write({ file: outfile, format: 'es' })
 }
 
@@ -65,7 +62,8 @@ export async function buildMetaFiles(outdir: string) {
     await fs.writeJSON(path.join(outdir, 'package.json'), packageJson, { spaces: '\t' })
   }
 
-  const modulesPath = path.join(process.cwd(), 'node_modules')
-  if (fs.existsSync(modulesPath) && !fs.existsSync(path.join(outdir, 'node_modules')))
-    lnk(['node_modules'], outdir)
+  if (fs.existsSync('node_modules')) {
+    await fs.remove(path.join(outdir, 'node_modules'))
+    await lnk(['node_modules'], outdir)
+  }
 }

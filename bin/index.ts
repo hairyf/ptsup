@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import { join } from 'path'
-import { cwd } from 'process'
 import fs from 'fs-extra'
 import cac from 'cac'
 import slash from 'slash'
@@ -8,7 +7,7 @@ import { pascalCase } from 'pascal-case'
 import type { Format } from '../helper'
 import { build, defaultConfig, getCwdPackage, toArray } from '../helper'
 
-const cli = cac('pkgup')
+const cli = cac('ptsup')
 
 function ensureArray(input: string): string[] {
   return Array.isArray(input) ? input : input.split(/ |,/)
@@ -16,6 +15,7 @@ function ensureArray(input: string): string[] {
 
 cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
   .option('--entry <directory|file>', 'Use a key-value pair as entry directory|files', { default: './' })
+  .option('-r, --root <dir>', 'Root directory', { default: '.' })
   .option('-o, --outdir <outdir>', 'Output directory', { default: 'dist' })
   .option('-f, --format <format>', 'Bundle format, "cjs", "iife", "esm"', { default: 'cjs' })
   .option('--sourcemap [inline]', 'Generate external sourcemap, or inline source: --sourcemap inline')
@@ -43,9 +43,6 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
     if (options.format)
       options.format = toArray(options.format)
 
-    if (!options.format)
-      options.format = options.platform === 'node' ? ['cjs', 'esm'] : ['cjs', 'esm', 'iife']
-
     if (!options.globalName) {
       const packageJson = getCwdPackage()
       let name: string = packageJson?.name || ''
@@ -55,7 +52,11 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
         options.globalName = name
     }
 
-    options.entry = options.entry.map((p: any) => join(cwd(), p)).map(slash)
+    if (options.root)
+      options.entry = options.entry.map((p: string) => join(options.root, p))
+
+    options.entry = options.entry.map(slash)
+    options.outdir = slash(options.outdir)
 
     build(options)
   })
