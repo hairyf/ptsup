@@ -2,7 +2,6 @@
 import { join } from 'path'
 import fs from 'fs-extra'
 import cac from 'cac'
-import slash from 'slash'
 import { pascalCase } from 'pascal-case'
 import type { Format } from '../config'
 import { defaultConfig } from '../config'
@@ -56,12 +55,6 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
       if (name)
         options.globalName = name
     }
-
-    if (options.root)
-      options.entry = options.entry.map((p: string) => join(options.root, p))
-
-    options.entry = options.entry.map(slash)
-    options.outdir = slash(options.outdir)
 
     build(options)
   })

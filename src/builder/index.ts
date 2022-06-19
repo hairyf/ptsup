@@ -1,13 +1,16 @@
 import { cwd } from 'process'
+import path from 'path'
 import fs from 'fs-extra'
 import { merge } from 'lodash'
 import { loadConfig } from 'unconfig'
+import slash from 'slash'
 import type { PtsupConfigurationRead } from '../config'
 import { buildAssets, buildMeta } from '../utils'
 import { buildFile } from './file'
 import { buildDirectory } from './dir'
 
 export async function build(config: PtsupConfigurationRead) {
+  // #region config helper
   const { config: mrConfig } = await loadConfig<PtsupConfigurationRead>({
     sources: {
       files: 'ptsup.config',
@@ -18,6 +21,13 @@ export async function build(config: PtsupConfigurationRead) {
 
   if (mrConfig)
     merge(config, mrConfig)
+
+  if (config.root)
+    config.entry = config.entry.map((p: string) => path.join(config.root, p))
+
+  config.entry = config.entry.map(slash)
+  config.outdir = slash(config.outdir)
+  // #endregion
 
   await fs.ensureDir(config.outdir)
 
