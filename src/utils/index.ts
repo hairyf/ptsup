@@ -28,6 +28,7 @@ export async function buildAssets(root: string, outdir: string, files: string[])
 
 export async function buildPackageJson(outdir: string) {
   const packageJson = await getCwdPackage()
+
   if (packageJson && packageJson.publishConfig) {
     delete packageJson.publishConfig.directory
     Object.assign(packageJson, packageJson.publishConfig)

@@ -68,6 +68,8 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
 
 const pkgPath = join(__dirname, '../package.json')
 
-cli.version(fs.readJSONSync(pkgPath).version)
+if (fs.existsSync(pkgPath))
+  cli.version(fs.readJSONSync(pkgPath).version)
+
 cli.help()
 cli.parse()
