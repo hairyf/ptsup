@@ -28,18 +28,20 @@ You can also install it globally but it's not recommended.
 ### Bundle files
 
 ```bash
-tsup [...files]
+tsup [...file]
 ```
 
 Files are written into `./dist`.
 
-You can bundle multiple files in one go:
+You can bundle file in one go:
 
 ```bash
-tsup src/index.ts src/cli.ts
+tsup src/index.ts
 ```
 
-This will output `dist/index.cjs.js; dist/index.esm.js` and `dist/cli.cjs.js; dist/cli/index.esm.js`.
+This will output `dist/index.cjs.js; dist/index.esm.js`.
+
+> Unlike tsup, Bundle file is more suitable for a single independent entry file
 
 ### build directory
 
@@ -69,6 +71,8 @@ dist
    index.js
  index.js
 ```
+
+> You can build multiple directories at once, but it is recommended to use only one directory as filename duplicates will be overwritten
 
 ## carry meta
 
