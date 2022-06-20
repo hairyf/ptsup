@@ -11,6 +11,65 @@
 - carry meta options
 - carry assets options(.png, .html,...more)
 
+## ⚙️ Install
+
+Install it locally in your project folder:
+
+```bash
+pnpm add tsup --dev
+# Or Yarn
+yarn add tsup --dev
+```
+
+You can also install it globally but it's not recommended.
+
+## 📖 Usage
+
+### Bundle files
+
+```bash
+tsup [...files]
+```
+
+Files are written into `./dist`.
+
+You can bundle multiple files in one go:
+
+```bash
+tsup src/index.ts src/cli.ts
+```
+
+This will output `dist/index.js` and `dist/cli.js`.
+
+### Bundle directory
+
+```bash
+tsup [...directory]
+```
+
+Files are written into `./dist`.
+
+You can build dir in one go:
+
+```
+src
+ - bin
+   index.ts
+ index.ts
+```
+
+```bash
+tsup src
+```
+This will output:
+
+```
+dist
+ - bin
+   index.js
+ index.js
+```
+
 ## carry meta
 
 use command `--meta` It works well on some monorepo (pnpm,yarn,npm) applications
