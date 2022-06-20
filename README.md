@@ -151,6 +151,7 @@ Options:
   --minify                   Minify bundles only for iife
   --target <target>          Bundle target, "es20XX" or "esnext" (default: esnext)
   --dts [entry]              Generate declaration file
+                             If entry is not passed in, it will be created based on the compiled file by default
   --dts-only                 Emit declaration files only
   --global-name <name>       Global variable name for iife format (default: package.name in pascal-case)
   --clean                    Clean output directory
