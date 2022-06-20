@@ -12,7 +12,7 @@
     "directory": "dist"
   },
   "scripts": {
-    "build": "ptsup -r src --dts --meta"
+    "build": "ptsup -r src --dts --meta --clean"
   },
   "license": "MIT",
   "dependencies": {

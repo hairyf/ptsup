@@ -1,3 +1,4 @@
+import path from 'path'
 import { rollup } from 'rollup'
 import rollupPluginDts from 'rollup-plugin-dts'
 
@@ -13,13 +14,17 @@ export async function buildDeclaration(input: string, outfile: string) {
 }
 
 export interface BuildDeclarationsOptions {
+  root?: string
   outdir: string
   bundle?: boolean
 }
 export async function buildDeclarations(inputs: string[], options: BuildDeclarationsOptions) {
   if (options.bundle) {
-    for (const input of inputs)
-      await buildDeclaration(input, options.outdir)
+    for (const baseInput of inputs) {
+      const input = options.root ? path.join(options.root, baseInput) : baseInput
+      const outfile = path.join(options.outdir, baseInput).replace('.ts', '.d.ts')
+      await buildDeclaration(input, outfile)
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires

@@ -25,8 +25,13 @@ export async function build(config: PtsupConfigurationRead) {
   if (config.entry)
     await buildEntry(config.entry, config)
 
-  if (config.dts.entry?.length)
-    await buildDeclarations(config.dts.entry, { outdir: config.outdir, bundle: true })
+  if (config.dts.entry?.length) {
+    await buildDeclarations(config.dts.entry, {
+      outdir: config.outdir,
+      bundle: true,
+      root: config.root,
+    })
+  }
 }
 
 async function buildEntry(entry: string[], config: PtsupConfigurationRead) {

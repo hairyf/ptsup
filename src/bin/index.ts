@@ -62,6 +62,8 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
     if (options.dtsOnly)
       dts.only = true
 
+    options.dts = dts
+
     if (!options.globalName) {
       const packageJson = await getCwdPackage()
       let name: string = packageJson?.name || ''
