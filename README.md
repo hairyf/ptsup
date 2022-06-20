@@ -41,7 +41,7 @@ tsup src/index.ts src/cli.ts
 
 This will output `dist/index.js` and `dist/cli.js`.
 
-### Bundle directory
+### build directory
 
 ```bash
 tsup [...directory]
