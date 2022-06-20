@@ -1,6 +1,6 @@
 # ptsup
 
-[![npm version](https://badgen.net/npm/v/ptsup)](https://npm.im/ptsup) [![npm downloads](https://badgen.net/npm/dm/ptsup)](https://npm.im/ptsup)
+[![npm version](https://badgen.net/npm/v/ptsup)](https://npm.im/ptsup)
 
 [tsup](https://github.com/egoist/tsup) is similar but focuses more on packet processing, powered by [esbuild](https://github.com/evanw/esbuild).
 
