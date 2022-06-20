@@ -17,9 +17,9 @@
 Install it locally in your project folder:
 
 ```bash
-pnpm add tsup --dev
+pnpm add ptsup --dev
 # Or Yarn
-yarn add tsup --dev
+yarn add ptsup --dev
 ```
 
 You can also install it globally but it's not recommended.
