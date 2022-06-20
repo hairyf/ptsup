@@ -10,6 +10,7 @@
 - A more casual package directory
 - carry meta options
 - carry assets options(.png, .html,...more)
+- more universal
 
 ## ⚙️ Install
 
