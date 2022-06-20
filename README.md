@@ -68,10 +68,10 @@ export default defineConfig({
 
 ```sh
 Usage:
-  $ ptsup [...files]
+  $ ptsup [...files/directorys]
 
 Commands:
-  [...files]  Bundle files
+  [...files/directorys]  Bundle files
 
 For more info, run any command with the `--help` flag:
   $ ptsup --help
