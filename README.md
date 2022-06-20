@@ -1,6 +1,6 @@
 # ptsup
 
-[![npm version](https://badgen.net/npm/v/ptsup)](https://npm.im/ptsup) [![npm downloads](https://badgen.net/npm/dm/ptsup)](https://npm.im/ptsup)
+[![npm version](https://badgen.net/npm/v/ptsup)](https://npm.im/ptsup)
 
 [tsup](https://github.com/egoist/tsup) is similar but focuses more on packet processing, powered by [esbuild](https://github.com/evanw/esbuild).
 
@@ -10,6 +10,71 @@
 - A more casual package directory
 - carry meta options
 - carry assets options(.png, .html,...more)
+- more universal
+
+## ⚙️ Install
+
+Install it locally in your project folder:
+
+```bash
+pnpm add tsup --dev
+# Or Yarn
+yarn add tsup --dev
+```
+
+You can also install it globally but it's not recommended.
+
+## 📖 Usage
+
+### Bundle files
+
+```bash
+tsup [...file]
+```
+
+Files are written into `./dist`.
+
+You can bundle multiple files in one go:
+
+```bash
+tsup src/index.ts src/bin/bin.ts
+```
+
+This will output `dist/index.cjs.js; dist/index.esm.js` and `dist/bin.cjs.js; dist/bin.esm.js`.
+
+> Unlike tsup, Bundle file is more suitable for a single independent entry file,
+> ptsup does not preserve the directory structure
+
+### build directory
+
+```bash
+tsup [...directory]
+```
+
+Files are written into `./dist`.
+
+You can build dir in one go:
+
+```
+src
+ - bin
+   index.ts
+ index.ts
+```
+
+```bash
+tsup src
+```
+This will output:
+
+```
+dist
+ - bin
+   index.js
+ index.js
+```
+
+> You can build multiple directories at once, but it is recommended to use only one directory as filename duplicates will be overwritten
 
 ## carry meta
 
@@ -17,7 +82,7 @@ use command `--meta` It works well on some monorepo (pnpm,yarn,npm) applications
 
 - carry package info (`LICENSE`, `README.md`, `CHANGELOG.md`)
 - handle `package.publishConfig` and carry package.json
-- create `node_modules` lnk file to output
+- create `node_modules` lnk file to output(default `dist`)
 
 ## Using custom configuration
 
@@ -42,14 +107,36 @@ export default defineConfig({
   clean: true,
 })
 ```
+
+## carry assets
+
+You can carry static resources that your project depends on
+
+use command `--assets aaa.png,xxx.vue`
+
+defines it like this in defineConfig
+
+```ts
+```ts
+import { defineConfig } from 'ptsup'
+
+export default defineConfig({
+  assets: [
+    'aaa.png',
+    'xxx.vue'
+  ]
+})
+```
+
+
 ## Available command line options
 
 ```sh
 Usage:
-  $ ptsup [...files]
+  $ ptsup [...files/directorys]
 
 Commands:
-  [...files]  Bundle files
+  [...files/directorys]  Bundle files
 
 For more info, run any command with the `--help` flag:
   $ ptsup --help
