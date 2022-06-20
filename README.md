@@ -42,6 +42,28 @@ export default defineConfig({
   clean: true,
 })
 ```
+
+## carry assets
+
+You can carry static resources that your project depends on
+
+use command `--assets aaa.png,xxx.vue`
+
+defines it like this in defineConfig
+
+```ts
+```ts
+import { defineConfig } from 'ptsup'
+
+export default defineConfig({
+  assets: [
+    'aaa.png',
+    'xxx.vue'
+  ]
+})
+```
+
+
 ## Available command line options
 
 ```sh
