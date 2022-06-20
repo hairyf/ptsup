@@ -112,7 +112,7 @@ export default defineConfig({
 
 You can carry static resources that your project depends on
 
-use command `--assets aaa.png,xxx.vue`
+use command `--assets aaa.png,xxx.vue,assetsDir`
 
 defines it like this in defineConfig
 
@@ -123,7 +123,8 @@ import { defineConfig } from 'ptsup'
 export default defineConfig({
   assets: [
     'aaa.png',
-    'xxx.vue'
+    'xxx.vue',
+    'assetsDir'
   ]
 })
 ```
