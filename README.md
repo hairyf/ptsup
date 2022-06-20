@@ -29,7 +29,7 @@ You can also install it globally but it's not recommended.
 ### Bundle files
 
 ```bash
-tsup [...file]
+ptsup [...file]
 ```
 
 Files are written into `./dist`.
@@ -37,7 +37,7 @@ Files are written into `./dist`.
 You can bundle multiple files in one go:
 
 ```bash
-tsup src/index.ts src/bin/bin.ts
+ptsup src/index.ts src/bin/bin.ts
 ```
 
 This will output `dist/index.cjs.js; dist/index.esm.js` and `dist/bin.cjs.js; dist/bin.esm.js`.
@@ -48,7 +48,7 @@ This will output `dist/index.cjs.js; dist/index.esm.js` and `dist/bin.cjs.js; di
 ### build directory
 
 ```bash
-tsup [...directory]
+ptsup [...directory]
 ```
 
 Files are written into `./dist`.
@@ -63,7 +63,7 @@ src
 ```
 
 ```bash
-tsup src
+ptsup src
 ```
 This will output:
 
