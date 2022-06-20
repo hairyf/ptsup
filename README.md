@@ -81,7 +81,7 @@ use command `--meta` It works well on some monorepo (pnpm,yarn,npm) applications
 
 - carry package info (`LICENSE`, `README.md`, `CHANGELOG.md`)
 - handle `package.publishConfig` and carry package.json
-- create `node_modules` lnk file to output
+- create `node_modules` lnk file to output(default `dist`)
 
 ## Using custom configuration
 
