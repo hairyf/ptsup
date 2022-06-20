@@ -39,7 +39,7 @@ You can bundle multiple files in one go:
 tsup src/index.ts src/cli.ts
 ```
 
-This will output `dist/index.js` and `dist/cli.js`.
+This will output `dist/index.cjs.js; dist/index.esm.js` and `dist/cli.cjs.js; dist/cli/index.esm.js`.
 
 ### build directory
 
