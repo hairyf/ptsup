@@ -3,6 +3,7 @@ import { join } from 'path'
 import fs from 'fs-extra'
 import cac from 'cac'
 import { pascalCase } from 'pascal-case'
+import { isArray, isString } from 'lodash'
 import type { Format } from '../config'
 import { defaultConfig } from '../config'
 import { getCwdPackage } from '../utils'
@@ -25,11 +26,12 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
   .option('--sourcemap [inline]', 'Generate external sourcemap, or inline source: --sourcemap inline')
   .option('--minify', 'Minify bundles only for iife')
   .option('--target <target>', 'Bundle target, "es20XX" or "esnext"', { default: 'esnext' })
-  .option('--dts', 'Generate declaration file')
-  // .option('--dts-only', 'Emit declaration files only')
+  .option('--dts [entry]', 'Generate declaration file')
+  .option('--dts-only', 'Emit declaration files only')
   .option('--global-name <name>', 'Global variable name for iife format', { default: 'package.name in pascal-case' })
-  .option('--clean', 'Clean output directory', { default: 'enable' })
-  .option('--meta', 'helper and carry package.json/*.md', { default: 'enable' })
+  .option('--clean', 'Clean output directory')
+  .option('--meta', 'helper and carry package.json/*.md')
+  .option('--assets [files]', 'carry some static resources')
   .option('--jsxFactory <jsxFactory>', 'Name of JSX factory function', { default: 'React.createElement' })
   .option('--platform <node|browser>', 'platform determines the format of the output', { default: 'node' })
   .action(async (files, flags) => {
@@ -46,6 +48,19 @@ cli.command('[...files]', 'Bundle files', { ignoreOptionDefaultValue: true })
 
     if (options.format)
       options.format = toArray(options.format)
+
+    if (flags.assets)
+      options.assets = ensureArray(flags.assets)
+
+    const dts: any = { enable: false }
+
+    if (options.dts) {
+      if (isString(options.dts) || isArray(options.dts))
+        dts.entry = ensureArray(options.dts)
+      dts.enable = true
+    }
+    if (options.dtsOnly)
+      dts.only = true
 
     if (!options.globalName) {
       const packageJson = await getCwdPackage()

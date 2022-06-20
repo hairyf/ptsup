@@ -8,11 +8,13 @@ export async function buildFile(input: string, config: PtsupConfigurationRead) {
   const basename = path.basename(input).replace(/\.ts|\.tsx/, '')
   const dtsFile = `${basename}.d.ts`
 
-  const promises: any[] = []
+  if (config.dts.enable && !config.dts.entry?.length)
+    await buildDeclaration(input, path.join(config.outdir, dtsFile))
 
-  if (config.dts)
-    promises.push(buildDeclaration(input, path.join(config.outdir, dtsFile)))
+  if (config.dts.only)
+    return
 
+  const formatPromises: any[] = []
   for (const format of config.format) {
     const outfile = path.join(config.outdir, `${basename}.${format}.js`)
     const promise = resolve(config, {
@@ -28,10 +30,9 @@ export async function buildFile(input: string, config: PtsupConfigurationRead) {
         entryPoints: [input],
         outfile: outfile.replace('.js', '.min.js'),
       })
-      promises.push(promise)
+      formatPromises.push(promise)
     }
-    promises.push(promise)
+    formatPromises.push(promise)
   }
-
-  await Promise.all(promises)
+  await Promise.all(formatPromises)
 }

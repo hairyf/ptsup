@@ -10,16 +10,20 @@ export interface PtsupConfiguration {
   sourcemap?: boolean
   minify?: boolean
   dts?: boolean
-  // dtsOnly?: boolean
   globalName?: string
   clean?: boolean
   meta?: boolean
   jsxFactory?: string
 }
 
-export interface PtsupConfigurationRead extends Omit<Required<PtsupConfiguration>, 'format' | 'entry'> {
+export interface PtsupConfigurationRead extends Omit<Required<PtsupConfiguration>, 'format' | 'entry' | 'dts'> {
   entry: string[]
   format: Format[]
+  dts: {
+    enable?: boolean
+    only?: boolean
+    entry?: string[]
+  }
 }
 
 export const defaultConfig: PtsupConfiguration = {
