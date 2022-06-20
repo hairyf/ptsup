@@ -130,7 +130,7 @@ export default defineConfig({
 ```
 
 
-## Available command line options
+## command line options
 
 ```sh
 Usage:
