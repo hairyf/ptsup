@@ -33,7 +33,7 @@ tsup [...file]
 
 Files are written into `./dist`.
 
-You can bundle file in one go:
+You can bundle multiple files in one go:
 
 ```bash
 tsup src/index.ts src/bin/bin.ts
