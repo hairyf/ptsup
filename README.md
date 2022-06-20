@@ -42,7 +42,7 @@ ptsup src/index.ts src/bin/bin.ts
 
 This will output `dist/index.cjs.js; dist/index.esm.js` and `dist/bin.cjs.js; dist/bin.esm.js`.
 
-> Unlike tsup, Bundle file is more suitable for a single independent entry file,
+> Unlike tsup, ptsup is more suitable for a single independent entry file,
 > ptsup does not preserve the directory structure
 
 ### build directory
