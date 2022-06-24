@@ -22,6 +22,9 @@ export async function configRead(config: PtsupConfigurationRead) {
   if (!config.format)
     config.format = config.platform === 'node' ? ['cjs', 'esm'] : ['cjs', 'esm', 'iife']
 
+  if (config.sourcemap)
+    config.format = ['esm']
+
   config.entry = config.entry.map(slash)
   config.outdir = slash(config.outdir)
   return config

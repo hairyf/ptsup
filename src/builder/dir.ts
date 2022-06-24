@@ -25,7 +25,7 @@ export async function buildDirectory(input: string, config: PtsupConfigurationRe
   await resolve(config, {
     plugins,
     entryPoints,
-    format: 'cjs',
+    format: config.splitting ? 'esm' : 'cjs',
     outdir: config.outdir,
   })
 }
