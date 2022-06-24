@@ -8,6 +8,7 @@ export interface PtsupConfiguration {
   root?: string
   format?: string
   sourcemap?: boolean
+  splitting?: boolean
   minify?: boolean
   dts?: boolean
   globalName?: string

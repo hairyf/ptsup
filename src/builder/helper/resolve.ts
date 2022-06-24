@@ -8,7 +8,7 @@ export async function resolve(config: PtsupConfigurationRead, build: esbuild.Bui
     bundle: false,
     color: true,
     platform: config.platform,
-
+    splitting: config.splitting,
     sourcemap: config.sourcemap,
     globalName: config.globalName,
     loader: { '.ts': 'tsx', '.tsx': 'tsx' },
