@@ -8,7 +8,7 @@ import { resolve } from './helper/resolve'
 import { buildDeclarations } from './dts'
 
 export async function buildDirectory(input: string, config: PtsupConfigurationRead) {
-  const source = slash(path.join(input, './**/*.ts'))
+  const source = [slash(path.join(input, './**/*.ts')), slash(path.join(input, './**/*.tsx'))]
 
   const ignore = ['_*', '**/dist', '**/node_modules', '__tests__/**', '**/.d.ts', 'ptsup.config.ts']
   const plugins: Plugin[] = []
