@@ -156,6 +156,7 @@ Options:
   --global-name <name>       Global variable name for iife format (default: package.name in pascal-case)
   --clean                    Clean output directory
   --meta                     helper and carry package.json/*.md
+  --splitting                Enables esbuild "code splitting", enable cast to esm module
   --assets [files]           carry some static resources
   --jsxFactory <jsxFactory>  Name of JSX factory function (default: React.createElement)
   --platform <node|browser>  platform determines the format of the output (default: node)
