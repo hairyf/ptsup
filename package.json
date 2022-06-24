@@ -25,11 +25,13 @@
     "directory": "dist"
   },
   "scripts": {
-    "build": "ptsup -r src --dts --meta --clean"
+    "build": "ptsup -r src --dts --meta --clean",
+    "change": "bumpp"
   },
   "license": "MIT",
   "dependencies": {
     "@types/fs-extra": "^9.0.13",
+    "bumpp": "^8.2.1",
     "cac": "^6.7.12",
     "esbuild": "^0.14.46",
     "esbuild-register": "^3.3.3",
