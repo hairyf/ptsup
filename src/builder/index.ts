@@ -36,7 +36,7 @@ export async function build(config: PtsupConfigurationRead) {
 
 async function buildEntry(entry: string[], config: PtsupConfigurationRead) {
   for (const input of entry) {
-    if (input.endsWith('.js') || input.endsWith('.ts'))
+    if (input.endsWith('.js') || input.endsWith('.ts') || input.endsWith('.tsx'))
       await buildFile(input, config)
     else
       await buildDirectory(input, config)
