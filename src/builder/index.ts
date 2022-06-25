@@ -16,11 +16,13 @@ export async function build(config: PtsupConfigurationRead) {
   if (!fs.existsSync(config.outdir))
     await fs.ensureDir(config.outdir)
 
-  if (config.assets)
-    await buildAssets(config.root || cwd(), config.outdir, config.assets)
-
   if (config.meta)
     await buildMeta(config.outdir)
+  if (config.metaOnly)
+    return
+
+  if (config.assets)
+    await buildAssets(config.root || cwd(), config.outdir, config.assets)
 
   if (config.entry)
     await buildEntry(config.entry, config)

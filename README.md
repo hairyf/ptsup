@@ -155,11 +155,12 @@ Options:
   --dts-only                 Emit declaration files only
   --global-name <name>       Global variable name for iife format (default: package.name in pascal-case)
   --clean                    Clean output directory
-  --meta                     helper and carry package.json/*.md
+  --meta                     Helper and carry package.json/*.md
+  --meta-only                Emit meta files only
   --splitting                Enables esbuild "code splitting", enable cast to esm module
-  --assets [files]           carry some static resources
+  --assets [files]           Carry some static resources
   --jsxFactory <jsxFactory>  Name of JSX factory function (default: React.createElement)
-  --platform <node|browser>  platform determines the format of the output (default: node)
+  --platform <node|browser>  Platform determines the format of the output (default: node)
                              platform->node:    cjs,esm
                              platform->browser: cjs,esm,iife
   -h, --help                 Display this message

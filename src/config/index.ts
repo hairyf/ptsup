@@ -14,6 +14,7 @@ export interface PtsupConfiguration {
   globalName?: string
   clean?: boolean
   meta?: boolean
+  metaOnly?: boolean
   jsxFactory?: string
 }
 
