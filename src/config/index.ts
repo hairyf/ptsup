@@ -1,3 +1,5 @@
+import type esbuild from 'esbuild'
+
 export type Format = 'cjs' | 'esm' | 'iife'
 
 export interface PtsupConfiguration {
@@ -6,21 +8,24 @@ export interface PtsupConfiguration {
   platform: 'node' | 'browser'
   assets?: string[]
   root?: string
-  format?: string
   sourcemap?: boolean
   splitting?: boolean
   minify?: boolean
   dts?: boolean
   globalName?: string
   clean?: boolean
+  target?: string
+  format?: string
+  external?: string[]
   meta?: boolean
   metaOnly?: boolean
   jsxFactory?: string
+  esbuild?: esbuild.BuildOptions
 }
 
 export interface PtsupConfigurationRead extends Omit<Required<PtsupConfiguration>, 'format' | 'entry' | 'dts'> {
   entry: string[]
-  format: Format[]
+  format: Format | Format[]
   dts: {
     enable?: boolean
     only?: boolean
