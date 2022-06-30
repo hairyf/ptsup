@@ -2,13 +2,13 @@ import { cwd } from 'process'
 import fs from 'fs-extra'
 import type { PtsupConfigurationRead } from '../config'
 import { buildAssets, buildMeta } from '../utils'
+import { helperConfigRead } from '../helper/config-read'
 import { buildFile } from './file'
 import { buildDirectory } from './dir'
 import { buildDeclarations } from './dts'
-import { configRead } from './helper/config'
 
 export async function build(config: PtsupConfigurationRead) {
-  config = await configRead(config)
+  config = await helperConfigRead(config)
 
   if (config.clean)
     fs.removeSync(config.outdir)

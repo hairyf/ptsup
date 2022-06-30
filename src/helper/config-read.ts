@@ -2,9 +2,9 @@ import path from 'path'
 import { merge } from 'lodash'
 import slash from 'slash'
 import { loadConfig } from 'unconfig'
-import type { PtsupConfigurationRead } from '../../config'
+import type { PtsupConfigurationRead } from '../config'
 
-export async function configRead(config: PtsupConfigurationRead) {
+export async function helperConfigRead(config: PtsupConfigurationRead) {
   const { config: mrConfig } = await loadConfig<PtsupConfigurationRead>({
     sources: {
       files: 'ptsup.config',
@@ -21,9 +21,6 @@ export async function configRead(config: PtsupConfigurationRead) {
 
   if (!config.format)
     config.format = config.platform === 'node' ? ['cjs', 'esm'] : ['cjs', 'esm', 'iife']
-
-  if (config.sourcemap)
-    config.format = ['esm']
 
   config.entry = config.entry.map(slash)
   config.outdir = slash(config.outdir)

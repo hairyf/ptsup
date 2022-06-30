@@ -1,8 +1,8 @@
 import path from 'path'
 import type { PtsupConfigurationRead } from '../config'
+import { toArray } from '../utils'
+import { resolve } from '../helper/config-resolve'
 import { buildDeclaration } from './dts'
-
-import { resolve } from './helper/resolve'
 
 export async function buildFile(input: string, config: PtsupConfigurationRead) {
   const basename = path.basename(input).replace(/\.ts|\.tsx/, '')
@@ -14,12 +14,13 @@ export async function buildFile(input: string, config: PtsupConfigurationRead) {
   if (config.dts.only)
     return
 
-  const formatPromises: any[] = []
-  for (const format of config.format) {
+  const formatPromises: Promise<any>[] = []
+  for (const format of toArray(config.format)) {
     const outfile = path.join(config.outdir, `${basename}.${format}.js`)
     const promise = resolve(config, {
       bundle: true,
-      format,
+      splitting: config.splitting && format === 'esm',
+      format: format as any,
       entryPoints: [input],
       outfile,
     })

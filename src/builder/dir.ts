@@ -1,10 +1,11 @@
 import path from 'path'
-import type { Plugin } from 'esbuild'
+import type { Format, Plugin } from 'esbuild'
 import slash from 'slash'
 import fg from 'fast-glob'
 import type { PtsupConfigurationRead } from '../config'
 
-import { resolve } from './helper/resolve'
+import { toArray } from '../utils'
+import { resolve } from '../helper/config-resolve'
 import { buildDeclarations } from './dts'
 
 export async function buildDirectory(input: string, config: PtsupConfigurationRead) {
@@ -22,10 +23,12 @@ export async function buildDirectory(input: string, config: PtsupConfigurationRe
   if (config.dts.only)
     return
 
+  const formats = toArray(config.format) as Format[]
+
   await resolve(config, {
     plugins,
     entryPoints,
-    format: config.splitting ? 'esm' : 'cjs',
+    format: config.splitting ? 'esm' : formats[0],
     outdir: config.outdir,
   })
 }

@@ -1,6 +1,7 @@
 import path from 'path'
 import { rollup } from 'rollup'
 import rollupPluginDts from 'rollup-plugin-dts'
+import ts from 'typescript'
 
 export async function buildDeclaration(input: string, outfile: string) {
   const bundles = await rollup({
@@ -28,7 +29,6 @@ export async function buildDeclarations(inputs: string[], options: BuildDeclarat
   }
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const ts = require('typescript')
   const compilerOptions = {
     allowJs: true,
     declaration: true,

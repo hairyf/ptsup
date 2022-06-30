@@ -43,3 +43,7 @@ export async function buildModulesLnk(outdir: string) {
     await lnk(['node_modules'], outdir)
   }
 }
+
+export function toArray(value: any | any[]) {
+  return Array.isArray(value) ? value : [value]
+}
