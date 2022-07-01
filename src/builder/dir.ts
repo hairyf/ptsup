@@ -15,7 +15,7 @@ export async function buildDirectory(input: string, config: PtsupConfigurationRe
   const plugins: Plugin[] = []
 
   let entryPoints = await fg(source, { ignore })
-  /**/entryPoints = entryPoints.filter(p => !p.endsWith('d.ts'))
+  /**/entryPoints = entryPoints.filter(p => !p.endsWith('.d.ts'))
 
   if (config.dts.enable && !config.dts.entry?.length)
     await buildDeclarations(entryPoints, { outdir: config.outdir })
