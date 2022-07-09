@@ -25,6 +25,7 @@
     "directory": "dist"
   },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "ptsup -r src --dts --meta --clean",
     "change": "bumpp"
   },
