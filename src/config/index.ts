@@ -21,6 +21,7 @@ export interface PtsupConfiguration {
   metaOnly?: boolean
   jsxFactory?: string
   esbuild?: esbuild.BuildOptions
+  watch?: boolean
 }
 
 export interface PtsupConfigurationRead extends Omit<Required<PtsupConfiguration>, 'format' | 'entry' | 'dts'> {

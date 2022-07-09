@@ -13,6 +13,7 @@ export async function resolve(config: PtsupConfigurationRead, build: esbuild.Bui
     sourcemap: config.sourcemap,
     globalName: config.globalName,
     target: config.target,
+    watch: config.watch,
     jsxFactory: config.jsxFactory,
     loader: { '.ts': 'tsx', '.tsx': 'tsx' },
   }
