@@ -1,7 +1,7 @@
 {
   "name": "ptsup",
   "description": "Build a packager with bundle or run tsc directories, suitable for node|browser library package processing, It is implemented using esbuild",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "index.ts",
   "keywords": [
     "tsup",
