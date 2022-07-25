@@ -7,7 +7,7 @@ export async function buildDeclaration(input: string, outfile: string) {
   const bundles = await rollup({
     input,
     plugins: [
-      rollupPluginDts({ compilerOptions: { preserveSymlinks: false } }),
+      rollupPluginDts({ compilerOptions: { preserveSymlinks: true } }),
     ],
     onwarn: () => false,
   })
