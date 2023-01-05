@@ -1,13 +1,15 @@
 import path from 'path'
 import { rollup } from 'rollup'
 import rollupPluginDts from 'rollup-plugin-dts'
+import rollupPluginCommonjs from '@rollup/plugin-commonjs'
 import ts from 'typescript'
 
 export async function buildDeclaration(input: string, outfile: string) {
   const bundles = await rollup({
     input,
     plugins: [
-      rollupPluginDts({ compilerOptions: { preserveSymlinks: true } }),
+      rollupPluginDts({ compilerOptions: { preserveSymlinks: false } }),
+      rollupPluginCommonjs(),
     ],
     onwarn: () => false,
   })
@@ -28,7 +30,6 @@ export async function buildDeclarations(inputs: string[], options: BuildDeclarat
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const compilerOptions = {
     allowJs: true,
     declaration: true,

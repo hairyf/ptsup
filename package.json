@@ -31,6 +31,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
     "@types/fs-extra": "^9.0.13",
     "bumpp": "^8.2.1",
     "cac": "^6.7.12",
