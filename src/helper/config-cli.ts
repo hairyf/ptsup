@@ -25,6 +25,9 @@ export async function helperConfigCli(files: any, flags: any) {
   if (options.external)
     options.external = options.external === true ? [] : ensureArray(options.external)
 
+  if (options.internal)
+    options.internal = options.internal === true ? [] : ensureArray(options.internal)
+
   const dts: any = { enable: false }
 
   if (options.dts) {

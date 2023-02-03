@@ -17,6 +17,7 @@ export interface PtsupConfiguration {
   target?: string
   format?: string
   external?: string[]
+  internal?: string[]
   meta?: boolean
   metaOnly?: boolean
   jsxFactory?: string
