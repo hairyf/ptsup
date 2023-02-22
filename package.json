@@ -1,7 +1,7 @@
 {
   "name": "ptsup",
   "description": "Build a packager with bundle or run tsc directories, suitable for node|browser library package processing, It is implemented using esbuild",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "main": "index.ts",
   "keywords": [
     "tsup",
@@ -26,34 +26,33 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "ptsup -r src --dts --meta --clean",
-    "change": "bumpp"
+    "build": "ptsup -r src --dts --meta --clean"
   },
   "license": "MIT",
   "dependencies": {
-    "@rollup/plugin-commonjs": "^24.0.0",
-    "@types/fs-extra": "^9.0.13",
+    "@rollup/plugin-commonjs": "^24.0.1",
     "bumpp": "^8.2.1",
-    "cac": "^6.7.12",
-    "esbuild": "^0.14.46",
-    "esbuild-register": "^3.3.3",
-    "fast-glob": "^3.2.11",
-    "fs-extra": "^10.1.0",
+    "cac": "^6.7.14",
+    "esbuild": "^0.17.10",
+    "esbuild-register": "^3.4.2",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^11.1.0",
     "lnk": "^1.1.0",
-    "lodash": "^4",
+    "lodash-es": "^4.17.21",
     "pascal-case": "^3.1.2",
     "react": "^18.2.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.75.6",
-    "rollup-plugin-dts": "^4.2.2",
+    "rimraf": "^4.1.2",
+    "rollup": "^3.17.2",
+    "rollup-plugin-dts": "^5.2.0",
     "slash": "3.0.0",
-    "typescript": "^4.7.4",
-    "unconfig": "^0.3.4"
+    "typescript": "^4.9.5",
+    "unconfig": "^0.3.7"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.25.1",
-    "@types/lodash": "^4",
-    "@types/node": "^18.0.0",
-    "eslint": "^8.18.0"
+    "@antfu/eslint-config": "^0.35.2",
+    "@types/fs-extra": "^11.0.1",
+    "@types/lodash-es": "^4.17.6",
+    "@types/node": "^18.14.0",
+    "eslint": "^8.34.0"
   }
 }
