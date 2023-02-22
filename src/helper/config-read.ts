@@ -1,5 +1,5 @@
 import path from 'path'
-import { merge } from 'lodash-es'
+import merge from 'lodash/merge'
 import slash from 'slash'
 import { loadConfig } from 'unconfig'
 import type { PtsupConfigurationRead } from '../config'

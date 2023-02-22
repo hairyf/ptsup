@@ -5,7 +5,6 @@ specifiers:
   '@rollup/plugin-commonjs': ^24.0.1
   '@types/fs-extra': ^11.0.1
   '@types/lodash': ^4.14.191
-  '@types/lodash-es': ^4.17.6
   '@types/node': ^18.14.0
   bumpp: ^8.2.1
   cac: ^6.7.14
@@ -15,7 +14,7 @@ specifiers:
   fast-glob: ^3.2.12
   fs-extra: ^11.1.0
   lnk: ^1.1.0
-  lodash-es: ^4.17.21
+  lodash: ^4.17.21
   pascal-case: ^3.1.2
   react: ^18.2.0
   rimraf: ^4.1.2
@@ -34,7 +33,7 @@ dependencies:
   fast-glob: 3.2.12
   fs-extra: 11.1.0
   lnk: 1.1.0
-  lodash-es: 4.17.21
+  lodash: 4.17.21
   pascal-case: 3.1.2
   react: 18.2.0
   rimraf: 4.1.2
@@ -48,7 +47,6 @@ devDependencies:
   '@antfu/eslint-config': 0.35.2_7kw3g6rralp5ps6mg3uyzz6azm
   '@types/fs-extra': 11.0.1
   '@types/lodash': 4.14.191
-  '@types/lodash-es': 4.17.6
   '@types/node': 18.14.0
   eslint: 8.34.0
 
@@ -505,12 +503,6 @@ packages:
     resolution: {integrity: sha512-GSgiRCVeapDN+3pqA35IkQwasaCh/0YFH5dEF6S88iDvEn901DjOeH3/QPY+XYP1DFzDZPvIvfeEgk+7br5png==}
     dependencies:
       '@types/node': 18.14.0
-    dev: true
-
-  /@types/lodash-es/4.17.6:
-    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
-    dependencies:
-      '@types/lodash': 4.14.191
     dev: true
 
   /@types/lodash/4.14.191:
@@ -2094,17 +2086,12 @@ packages:
       p-locate: 5.0.0
     dev: true
 
-  /lodash-es/4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
-
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}

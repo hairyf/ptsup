@@ -1,5 +1,5 @@
 import esbuild from 'esbuild'
-import { merge } from 'lodash-es'
+import merge from 'lodash/merge'
 import type { PtsupConfigurationRead } from '../config'
 import { externalize } from './plugins/externalize'
 
