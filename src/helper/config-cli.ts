@@ -1,4 +1,4 @@
-import { isArray, isString } from 'lodash'
+import { isArray, isString } from 'lodash-es'
 import { pascalCase } from 'pascal-case'
 import type { Format } from '../config'
 import { defaultConfig } from '../config'

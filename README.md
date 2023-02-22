@@ -117,7 +117,6 @@ use command `--assets aaa.png,xxx.vue,assetsDir`
 defines it like this in defineConfig
 
 ```ts
-```ts
 import { defineConfig } from 'ptsup'
 
 export default defineConfig({

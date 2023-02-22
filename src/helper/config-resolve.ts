@@ -1,5 +1,5 @@
 import esbuild from 'esbuild'
-import { merge } from 'lodash'
+import { merge } from 'lodash-es'
 import type { PtsupConfigurationRead } from '../config'
 import { externalize } from './plugins/externalize'
 
@@ -13,7 +13,8 @@ export async function resolve(config: PtsupConfigurationRead, build: esbuild.Bui
     sourcemap: config.sourcemap,
     globalName: config.globalName,
     target: config.target,
-    watch: config.watch,
+    // TODO: https://github1s.com/egoist/tsup/blob/dev/src/index.ts
+    // watch: config.watch,
     jsxFactory: config.jsxFactory,
     loader: { '.ts': 'tsx', '.tsx': 'tsx' },
   }
