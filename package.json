@@ -1,8 +1,8 @@
 {
   "name": "ptsup",
-  "description": "Build a packager with bundle or run tsc directories, suitable for node|browser library package processing, It is implemented using esbuild",
   "version": "0.3.1",
-  "main": "index.ts",
+  "description": "Build a packager with bundle or run tsc directories, suitable for node|browser library package processing, It is implemented using esbuild",
+  "license": "MIT",
   "keywords": [
     "tsup",
     "package.json",
@@ -16,6 +16,7 @@
     "pnpm",
     "monorepo"
   ],
+  "main": "index.ts",
   "bin": {
     "ptsup": "bin/index.js"
   },
@@ -28,9 +29,7 @@
     "prepublishOnly": "npm run build",
     "build": "ptsup -r src --dts --meta --clean"
   },
-  "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.21",
     "@rollup/plugin-commonjs": "^24.0.1",
     "bumpp": "^8.2.1",
     "cac": "^6.7.14",
@@ -39,6 +38,7 @@
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.0",
     "lnk": "^1.1.0",
+    "lodash": "^4.17.21",
     "pascal-case": "^3.1.2",
     "react": "^18.2.0",
     "rimraf": "^4.1.2",
@@ -49,9 +49,9 @@
     "unconfig": "^0.3.7"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.191",
     "@antfu/eslint-config": "^0.35.2",
     "@types/fs-extra": "^11.0.1",
+    "@types/lodash": "^4.14.191",
     "@types/node": "^18.14.0",
     "eslint": "^8.34.0"
   }

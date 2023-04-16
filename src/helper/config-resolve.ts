@@ -23,7 +23,7 @@ export async function resolve(config: PtsupConfigurationRead, build: esbuild.Bui
   buildConfig.plugins = buildConfig.plugins || []
 
   if (!buildConfig.external)
-    buildConfig.plugins.push(externalize())
+    buildConfig.plugins.push(externalize(config.internal))
 
   return esbuild.build(buildConfig)
 }
