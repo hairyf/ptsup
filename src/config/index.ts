@@ -20,6 +20,7 @@ export interface PtsupConfiguration {
   internal?: string[]
   meta?: boolean
   metaOnly?: boolean
+  metafile?: boolean
   jsxFactory?: string
   esbuild?: esbuild.BuildOptions
   watch?: boolean
@@ -43,5 +44,6 @@ export const defaultConfig: PtsupConfiguration = {
   minify: false,
   dts: false,
   clean: false,
+  metafile: false,
   jsxFactory: 'React.createElement',
 }
