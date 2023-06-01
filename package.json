@@ -36,7 +36,7 @@
     "build": "ptsup -r src --dts --meta --clean"
   },
   "dependencies": {
-    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-commonjs": "^25.0.0",
     "bumpp": "^9.0.0",
     "cac": "^6.7.14",
     "esbuild": "^0.17.10",

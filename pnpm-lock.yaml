@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@rollup/plugin-commonjs':
-    specifier: ^24.0.1
-    version: 24.0.1(rollup@3.17.2)
+    specifier: ^25.0.0
+    version: 25.0.0(rollup@3.17.2)
   bumpp:
     specifier: ^9.0.0
     version: 9.0.0
@@ -449,8 +449,8 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@rollup/plugin-commonjs@24.0.1(rollup@3.17.2):
-    resolution: {integrity: sha512-15LsiWRZk4eOGqvrJyu3z3DaBu5BhXIMeWnijSRvd8irrrg9SHpQ1pH+BUK4H6Z9wL9yOxZJMTLU+Au86XHxow==}
+  /@rollup/plugin-commonjs@25.0.0(rollup@3.17.2):
+    resolution: {integrity: sha512-hoho2Kay9TZrLu0bnDsTTCaj4Npa+THk9snajP/XDNb9a9mmjTjh52EQM9sKl3HD1LsnihX7js+eA2sd2uKAhw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0
