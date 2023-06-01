@@ -1,6 +1,6 @@
 {
   "name": "ptsup",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "packageManager": "pnpm@8.1.1",
   "description": "Build a packager with bundle or run tsc directories, suitable for node|browser library package processing, It is implemented using esbuild",
   "license": "MIT",
@@ -24,7 +24,8 @@
   "publishConfig": {
     "main": "./index.js",
     "types": "./index.d.ts",
-    "directory": "dist"
+    "directory": "dist",
+    "linkDirectory": false
   },
   "scripts": {
     "lint": "eslint .",
