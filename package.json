@@ -31,6 +31,7 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit --skipLibCheck",
     "prepublishOnly": "npm run build",
+    "release": "bumpp && npm publish",
     "build": "ptsup -r src --dts --meta --clean"
   },
   "dependencies": {
