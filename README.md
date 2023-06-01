@@ -156,6 +156,7 @@ Options:
   --clean                    Clean output directory
   --meta                     Helper and carry package.json/*.md
   --meta-only                Emit meta files only
+  --metafile                 Emit esbuild metafile to use with Bundle Size Analyzer (default: false)
   --splitting                Enables esbuild "code splitting", enable cast to esm module
   --assets [files]           Carry some static resources
   --jsxFactory <jsxFactory>  Name of JSX factory function (default: React.createElement)
