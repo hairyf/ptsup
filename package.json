@@ -1,6 +1,7 @@
 {
   "name": "ptsup",
   "version": "0.3.2",
+  "packageManager": "pnpm@8.1.1",
   "description": "Build a packager with bundle or run tsc directories, suitable for node|browser library package processing, It is implemented using esbuild",
   "license": "MIT",
   "keywords": [
@@ -26,6 +27,9 @@
     "directory": "dist"
   },
   "scripts": {
+    "lint": "eslint .",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit --skipLibCheck",
     "prepublishOnly": "npm run build",
     "build": "ptsup -r src --dts --meta --clean"
   },
@@ -52,6 +56,7 @@
     "@types/fs-extra": "^11.0.1",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.14.0",
-    "eslint": "^8.34.0"
+    "eslint": "^8.34.0",
+    "vitest": "^0.31.3"
   }
 }
