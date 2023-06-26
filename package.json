@@ -1,7 +1,7 @@
 {
   "name": "ptsup",
   "version": "0.3.4",
-  "packageManager": "pnpm@8.1.1",
+  "packageManager": "pnpm@8.6.4",
   "description": "Build a packager with bundle or run tsc directories, suitable for node|browser library package processing, It is implemented using esbuild",
   "license": "MIT",
   "keywords": [
