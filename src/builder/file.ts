@@ -1,5 +1,5 @@
 import path from 'path'
-import type { PtsupConfigurationRead } from '../config'
+import type { Format, PtsupConfigurationRead } from '../config'
 import { toArray } from '../utils'
 import { resolve } from '../helper/config-resolve'
 import { buildDeclaration } from './dts'
@@ -15,8 +15,13 @@ export async function buildFile(input: string, config: PtsupConfigurationRead) {
     return
 
   const formatPromises: Promise<any>[] = []
-  for (const format of toArray(config.format)) {
-    const outfile = path.join(config.outdir, `${basename}.${format}.js`)
+  for (const format of toArray(config.format) as Format[]) {
+    const suffix: Record<string, string> = {
+      cjs: 'cjs',
+      esm: 'mjs',
+      iife: 'iife.js',
+    }
+    const outfile = path.join(config.outdir, `${basename}.${suffix[format]}`)
     const promise = resolve(config, {
       bundle: true,
       splitting: config.splitting && format === 'esm',
