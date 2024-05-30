@@ -33,7 +33,7 @@
     "typecheck": "tsc --noEmit --skipLibCheck",
     "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish",
-    "build": "ptsup -r src --dts --meta --clean"
+    "build": " node .bin/index.js -r src --dts --meta --clean"
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
